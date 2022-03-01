@@ -12,6 +12,8 @@
 from PIL import Image 
 from PIL import ImageFilter # Library needed for filters
 import os
+import math
+import random
 
 # Adds two blank lines before output
 print("\n\n")
@@ -45,13 +47,16 @@ if scale != 0:
 ########################
 
 
-newImage1 = img
+newImage1 = img.filter(ImageFilter.EDGE_ENHANCE_MORE)
+newImage1 = newImage1.filter(ImageFilter.BLUR)
 
 
-newImage2 = img
+for i in range(3):
+    newImage2 = img.filter(ImageFilter.GaussianBlur(random.randint(0, 100)))
 
 
-newImage3 = img
+newImage3 = img.filter(ImageFilter.DETAIL)
+newImage3 = newImage3.filter(ImageFilter.EDGE_ENHANCE)
 
 
 ###################################
